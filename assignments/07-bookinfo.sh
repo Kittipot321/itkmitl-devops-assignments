@@ -10,7 +10,7 @@ docker run -d -it --name details -p 8081:9080 -e ENABLE_EXTERNAL_BOOK_SERVICE=tr
 
 cd ../itkmitl-bookinfo-reviews
 docker build -t reviews .
-docker run -d --name reviews --link ratings:ratings -p 8082:9080 -e ENABLE_RATINGS=true -e RATINGS_SERVICE="http://ratings:8080/ratings" reviews
+docker run -d --name reviews --link ratings:ratings -p 8082:9080 -e ENABLE_RATINGS=true -e RATINGS_SERVICE="http://ratings:8080" reviews
 
 cd ../itkmitl-bookinfo-productpage
 docker build -t productpage .
