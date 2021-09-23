@@ -1,0 +1,8 @@
+services:
+  reviews:
+    build: .
+    image: ghcr.io/kittipot321/bookinfo-reviews:dev
+    ports:
+      - "8082:9080"
+    environment:
+      ENABLE_RATINGS: "true"
