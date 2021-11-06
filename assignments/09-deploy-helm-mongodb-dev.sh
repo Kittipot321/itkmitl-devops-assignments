@@ -8,7 +8,7 @@ kubectl config set-context $(kubectl config current-context) --namespace=student
 # Create Secret & ConfigMap
 kubectl create secret generic registry-bookinfo   --from-file=.dockerconfigjson=$HOME/.docker/config.json   --type=kubernetes.io/dockerconfigjson
 kubectl create secret generic bookinfo-dev-ratings-mongodb-secret   --from-literal=mongodb-password=CHANGEME   --from-literal=mongodb-root-password=CHANGEME
-kubectl create configmap bookinfo-dev-ratings-mongodb-initdb   --from-file=databases/ratings_data.json   --from-file=databases/script.sh
+kubectl create configmap bookinfo-dev-ratings-mongodb-initdb   --from-file=../bookinfo/ratings/databases/ratings_data.json   --from-file=../bookinfo/ratings/databases/script.sh
 
 # Deploy with Helm
-helm install -f ..bookinfo/ratings/k8s/helm-values/values-bookinfo-dev-ratings-mongodb.yaml   bookinfo-dev-ratings-mongodb bitnami/mongodb --version 10.28.4
+helm install -f ../bookinfo/ratings/k8s/helm-values/values-bookinfo-dev-ratings-mongodb.yaml   bookinfo-dev-ratings-mongodb bitnami/mongodb --version 10.28.4
